@@ -1,10 +1,12 @@
 Vvveb.ComponentsGroup['Bootstrap 5'].push("php/trending_posts_gridrow")
 
+const trending_posts_gridcolumn_html = `<div class="trending_posts_column col-sm-4" data-module="php/trending_posts_gridcolumn"><h3>col-sm-4</h3></div>`;
+
 Vvveb.Components.extend("_base", "php/trending_posts_gridcolumn", {
     name: "Trending Posts Column",
     image: "icons/grid_column.svg",
     classes: ["trending_posts_column"],
-    html: '<div class="trending_posts_column col-sm-4"><h3>col-sm-4</h3></div>',
+    html: `${trending_posts_gridcolumn_html}`,
     properties: [{
         name: "Column",
         key: "column",
@@ -42,10 +44,10 @@ Vvveb.Components.extend("_base", "php/trending_posts_gridrow", {
     name: "Trending Posts Row",
     image: "icons/grid_row.svg",
     classes: ["trending_posts_gridrow"],
-    html: `<div class="trending_posts_gridrow row">
-        <div class="trending_posts_column col-sm-4"><h3>col-sm-4</h3></div>
-        <div class="trending_posts_column col-sm-4 col-5"><h3>col-sm-4</h3></div>
-        <div class="trending_posts_column col-sm-4"><h3>col-sm-4</h3></div>
+    html: `<div class="trending_posts_gridrow row" data-module="php/trending_posts_gridrow">
+        ${trending_posts_gridcolumn_html}
+        ${trending_posts_gridcolumn_html}
+        ${trending_posts_gridcolumn_html}
     </div>
     `,
     children :[{
@@ -300,7 +302,7 @@ Vvveb.Components.extend("_base", "php/trending_posts_gridrow", {
         data: {text:"Add column", icon:"la la-plus"},
         onChange: function(node)
         {
-             node.append(generateElements('<div class="trending_posts_column col-sm-4"><h3>col-sm-4</h3></div>')[0]);
+             node.append(generateElements(`${trending_posts_gridcolumn_html}`)[0]);
 
              //render component properties again to include the new column inputs
              Vvveb.Components.render("php/trending_posts_gridrow");

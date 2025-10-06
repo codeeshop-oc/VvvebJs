@@ -1,6 +1,6 @@
-Vvveb.ComponentsGroup['Bootstrap 5'].push("php/trending_posts_gridrow")
+Vvveb.ComponentsGroup['Custom'] = ["php/trending_posts_gridrow"]
 
-const trending_posts_gridcolumn_html = `<div class="trending_posts_column col-sm-4" data-module="php/trending_posts_gridcolumn"><h3>col-sm-4</h3></div>`;
+const trending_posts_gridcolumn_html = `<div class="trending_posts_column col-sm-12" data-module="php/trending_posts_gridcolumn"><h3>col-sm-12</h3></div>`;
 
 Vvveb.Components.extend("_base", "php/trending_posts_gridcolumn", {
     name: "Trending Posts Column",
@@ -341,3 +341,18 @@ Vvveb.Components.extend("_base", "php/trending_posts_gridrow", {
 //         }
 //     ]
 // });
+
+Vvveb.SectionsGroup["Custom"] = ['base/2-columns-8-4'];
+// VvvebJs/demo/landing/sections/sections.js
+Vvveb.Sections.add("base/2-columns-8-4", {
+    name: "2 columns 8-4",
+    image: Vvveb.themeBaseUrl + "/screenshots/sections/base/2-columns-thumb.webp",
+    html: `<section title="two columns 8-4" class="py-4" data-module="base/2-columns-8-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-8"></div>
+      <div class="col-4"></div>
+    </div>
+  </div>
+</section>`
+});

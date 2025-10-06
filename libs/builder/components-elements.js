@@ -19,7 +19,7 @@ https://github.com/givanz/Vvvebjs
 Vvveb.ComponentsGroup['Elements'] = [
 /*sections */
 "elements/font-icon",
-"elements/carousel", 
+"elements/carousel",
 "elements/gallery",
 "elements/slider",
 "elements/tabs",
@@ -58,7 +58,7 @@ Vvveb.Components.extend("_base","elements/figure", {
 		  <figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>
 		  <div class="border"></div>
 		</figure>`,
-		
+
 	stylesheets:[{
 			//the css is added in head when the element is added to page
 			'src': Vvveb.baseUrl + 'css/figure.css',
@@ -73,9 +73,9 @@ Vvveb.Components.extend("_base","elements/figure", {
 			//the js is removed on save if none of the figure elements are present in the page
 			'mustHaveElement':"figure",
 		}
-	],*/	
+	],*/
     resizable:true,//show select box resize handlers
-    
+
     properties: [{
         name: "Image",
         key: "src",
@@ -106,7 +106,7 @@ Vvveb.Components.extend("_base","elements/figure", {
         child:"figcaption",
         htmlAttr: "innerHTML",
         inputtype: TextareaInput
-    }]    
+    }]
 });
 
 
@@ -164,13 +164,13 @@ Vvveb.Components.extend("_base","elements/font-icon", {
             }]
         }
     }]
-});   
+});
 /*
 V.Resources.Icons =
 [{
 	value: `stopwatch.svg`,
 	text: "Star"
-}, 
+},
 {
 	value: `envelope.svg`,
 	text: "Sections"
@@ -194,7 +194,7 @@ Vvveb.Components.extend("_base","elements/svg-icon", {
 		onChange:function(element, value, input, component) {
 			let newElement = generateElements(value)[0];
 			let attributes = element.attributes;
-			
+
 			//keep old svg size and colors
 			for (let i = 0; i < attributes.length; i++) {
 				let attr = attributes[i];
@@ -202,7 +202,7 @@ Vvveb.Components.extend("_base","elements/svg-icon", {
 					newElement.setAttribute(attr.name, attr.value);
 				}
 			}
-			
+
 			element.replaceWith(newElement);
 			return newElement;
 		},
@@ -319,7 +319,7 @@ Vvveb.Components.extend("_base","elements/svg-icon", {
 			max: 640,
 			min:6,
 			step:1
-		}			
+		}
    },{
 		name: "Stroke width",
 		key: "stroke-width",
@@ -329,7 +329,7 @@ Vvveb.Components.extend("_base","elements/svg-icon", {
 			max: 512,
 			min:1,
 			step:1
-		}			
+		}
    },{
 		key: "svg_style_header",
 		inputtype: SectionInput,
@@ -365,7 +365,7 @@ Vvveb.Components.extend("_base","elements/svg-icon", {
         htmlAttr: "stroke",
         inputtype: ColorInput,
   	}]
-});   
+});
 
 
 Vvveb.Components.add("elements/svg-element", {
@@ -409,9 +409,9 @@ Vvveb.Components.add("elements/svg-element", {
 			max: 512,
 			min:1,
 			step:1
-		}			
+		}
 	}]
-});  
+});
 
 //Gallery
 Vvveb.Components.add("elements/gallery", {
@@ -470,18 +470,18 @@ Vvveb.Components.add("elements/gallery", {
 			setGroup: group => {
 				document.querySelectorAll(".mb-3[data-group]").forEach(el => el.style.display = "none");
 				document.querySelector('.mb-3[data-group="'+ group + '"]').style.display = "";
-			}, 		
+			},
 			onChange : function(node, value, input)  {
 				this.setGroup(value);
 				return node;
-			}, 
+			},
 			init: function (node) {
 				if (node.classList.contains("masonry")) {
 					return "masonry";
 				} else {
 					return "flex";
 				}
-			},   			
+			},
 		},{
 			name: "Image shadow",
 			key: "shadow",
@@ -540,10 +540,10 @@ Vvveb.Components.add("elements/gallery", {
 				if (value) {
 					value = 100 / value;
 					value += "%";
-				} 
-				
+				}
+
 				return value;
-			}  			
+			}
 	   },{
 			name: "",
 			key: "addChild",
@@ -551,27 +551,27 @@ Vvveb.Components.add("elements/gallery", {
 			data: {text:"Add image", icon:"la la-plus"},
 			onChange: function(node) {
 				 node.append(generateElements('<div class="item"><a><img src="../../media/posts/1.jpg"></a></div>')[0]);
-				 
+
 				 //render component properties again to include the new image
 				 //Vvveb.Components.render("ellements/gallery");
-				 
+
 				 return node;
 			}
 	}],
     init(node)	{
 
 		document.querySelectorAll(".mb-3[data-group]").forEach(el => el.style.display = "none");
-		
+
 		let source = "flex";
 		if (node.classList.contains("masonry")) {
 			source = "masonry";
 		} else {
 			source = "flex";
 		}
-		
+
 		document.querySelector('.mb-3[data-group="'+ source + '"]').style.display = "";
-	}	
-});  
+	}
+});
 
 //Tabs
 Vvveb.Components.add("elements/tab", {
@@ -594,7 +594,7 @@ Vvveb.Components.add("elements/tab", {
 			inline:false,
 			col:6,
 			inputtype: TextInput
-			
+
 		} , {
         name: "Active",
         key: "active",
@@ -608,8 +608,8 @@ Vvveb.Components.add("elements/tab", {
             off: ""
         }
     }]
-}); 
-	
+});
+
 Vvveb.Components.add("elements/tabs", {
     attributes: ["data-component-tabs"],
     name: "Tabs",
@@ -641,7 +641,7 @@ Vvveb.Components.add("elements/tabs", {
 		node.innerHTML = node.innerHTML.replaceAll('parentId', parentId);
 
 		return node;
-	},	
+	},
     properties: [{
 			//name: "List",
 			key: "list",
@@ -650,7 +650,7 @@ Vvveb.Components.add("elements/tabs", {
 				component: "elements/tab",
 				name: "html/gridcolumn",
 				classesRegex: ["col-"],
-			}],			
+			}],
 			inline:false,
 			inputtype: ListInput,
 			data: {
@@ -664,7 +664,7 @@ Vvveb.Components.add("elements/tabs", {
 			onChange: function(node, value, input, component, event) {
 				let element = node;
 				let tabsId = element.id.replace('tabs-','');
-				
+
 				let nav = node.querySelector("nav .nav-tabs");
 				let content = node.querySelector(".tab-content");
 
@@ -672,15 +672,15 @@ Vvveb.Components.add("elements/tabs", {
 					if (event.action == "add") {
 						let random = Math.floor(Math.random() * 100) + 1;
 						let index = nav.childElementCount + 1;
-						
+
 						nav.append(generateElements(`<button class="nav-link" id="nav-tab-${tabsId}-${index}-${random}" data-bs-toggle="tab" data-bs-target="#tab-${tabsId}-${index}-${random}" type="button" role="tab" aria-controls="tab-${index}-${random}" aria-selected="false">Tab ${index}</button>`)[0]);
-						
+
 						content.append(generateElements(`<div class="tab-pane p-4" id="tab-${tabsId}-${index}-${random}" role="tabpanel" aria-labelledby="tab-${tabsId}-${index}-${random}" tabindex="0"><p>Never think of results, just do!</p></div>`)[0]);
-						
+
 						//temporary solution to better update list
 						Vvveb.Components.render("elements/tabs");
 					}
-					
+
 					let index = event.index + 1;
 					if (event.action == "remove") {
 						nav.querySelector("button:nth-child(" + index + ")").remove();
@@ -690,12 +690,12 @@ Vvveb.Components.add("elements/tabs", {
 						Vvveb.Builder.iframe.contentWindow.bootstrap.Tab.getOrCreateInstance(tab).show();
 					}
 				}
-				
+
 				return node;
 			},
 		}
 	]
-}); 	
+});
 
 
 //Accordion
@@ -747,7 +747,7 @@ Vvveb.Components.add("elements/accordion", {
 		//node.outerHTML = node.outerHTML.replaceAll('parentId', parentId);
 		node.id = 'accordion-' + parentId;
 		node.innerHTML = node.innerHTML.replaceAll('parentId', parentId);
-		
+
 		return node;
 	},
     properties: [{
@@ -768,12 +768,12 @@ Vvveb.Components.add("elements/accordion", {
 			onChange: function(node, value, input, component, event) {
 				let element = node;
 				let accordionId = element.id.replace('accordion-','');
-				
+
 				if (event.action) {
 					if (event.action == "add") {
 						let random = Math.floor(Math.random() * 100) + 1;
 						let index = element.childElementCount + 1;
-						
+
 						node.append(generateElements(`<div class="accordion-item">
 							<h2 class="accordion-header" id="heading-${index}-${random}">
 							  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-${index}-${random}" aria-expanded="false" aria-controls="collapseTwo">Accordion Item #${index}</button>
@@ -784,11 +784,11 @@ Vvveb.Components.add("elements/accordion", {
 							  </div>
 							</div>
 						  </div>`)[0]);
-						
+
 						//temporary solution to better update list
 						Vvveb.Components.render("elements/accordion");
 					}
-					
+
 					let index = (event.index + 1);
 					if (event.action == "remove") {
 						node.querySelector(":scope > .accordion-item:nth-child(" + index + ")").remove();
@@ -805,7 +805,7 @@ Vvveb.Components.add("elements/accordion", {
 						//Vvveb.Builder.iframe.contentWindow.bootstrap.Collapse.getOrCreateInstance(el[0]).toggle();
 					}
 				}
-				
+
 				return node;
 			},
 		},{
@@ -818,9 +818,9 @@ Vvveb.Components.add("elements/accordion", {
 				on: "accordion-flush",
 				off: ""
 			}
-		},		
+		},
 	]
-}); 
+});
 
 Vvveb.Components.add("elements/flip-box", {
     classes: ["flip-box"],
@@ -836,9 +836,9 @@ Vvveb.Components.add("elements/flip-box", {
 					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 					<a href="#" class="btn btn-primary">Go somewhere</a>
 				  </div>
-				</div>	
+				</div>
 			</div>
-			
+
 			<div class="flip-box-back">
 				<div class="d-flex align-items-center flex-column">
 				  <div class="flex-shrink-0">
@@ -848,7 +848,7 @@ Vvveb.Components.add("elements/flip-box", {
 					<p>
 						This is some content from a media component. You can replace this with any content and adjust it as needed.
 					</p>
-					
+
 					<a href="#" class="btn btn-primary">Go somewhere</a>
 				  </div>
 				</div>
@@ -898,7 +898,7 @@ Vvveb.Components.add("elements/flip-box", {
 			}
 		},
 	]
-});   
+});
 
 Vvveb.Components.add("elements/counter", {
     nodes: [".counter"],
@@ -907,7 +907,7 @@ Vvveb.Components.add("elements/counter", {
     html: `<i class="font-icon la la-star"></i>`,
     properties: [
 	]
-});   
+});
 
 Vvveb.Components.add("elements/testimonial", {
     nodes: [".counter"],
@@ -917,11 +917,11 @@ Vvveb.Components.add("elements/testimonial", {
 				<p>Today I shall be meeting with interference, ingratitude, insolence, disloyalty, ill-will, and selfishness all of them due to the offenders' ignorance of what is good or evil.</p>
 				<cite class="small">
 					<a href="https://en.wikipedia.org/wiki/Marcus_Aurelius" class="text-decoration-none" target="blank">Marcus Aurelius</a>
-				</cite>	
+				</cite>
 			</blockquote>`,
     properties: [
 	]
-});   
+});
 
 Vvveb.Components.add("elements/social-icons", {
     classes: ["social-icons"],
@@ -937,17 +937,17 @@ Vvveb.Components.add("elements/social-icons", {
 					<a href="https://linkedin.com">
 						<i class="lab la-linkedin-in la-2x"></i> <span>Linkedin</span>
 					</a>
-				</li>		
+				</li>
 				<li>
 					<a href="https://twitter.com">
 						<i class="lab la-twitter la-2x"></i> <span>Twitter</span>
 					</a>
-				</li>					
+				</li>
 				<li>
 					<a href="https://instagram.com">
 						<i class="lab la-instagram la-2x"></i> <span>Instagram</span>
 					</a>
-				</li>				
+				</li>
 				<li>
 					<a href="https://github.com">
 						<i class="lab la-github la-2x"></i> <span>Github</span>
@@ -979,7 +979,7 @@ Vvveb.Components.add("elements/social-icons", {
 								<i class="lab la-twitter la-2x"></i> <span>Twitter</span>
 							</a>
 						</li>`)[0]);
-						
+
 						//temporary solution to better update list
 						Vvveb.Components.render("elements/social-icons");
 					}
@@ -991,7 +991,7 @@ Vvveb.Components.add("elements/social-icons", {
 						//Vvveb.Builder.iframe.contentWindow.bootstrap.Collapse.getOrCreateInstance(el[0]).toggle();
 					}
 				}
-				
+
 				return node;
 			},
 		},{
@@ -1015,7 +1015,7 @@ Vvveb.Components.add("elements/social-icons", {
 				off: ""
 			}
 		}]
-}); 
+});
 
 function carouselAfterDrop(node) {
 	//check if swiper js is included and if not add it when drag starts to allow the script to load
@@ -1038,11 +1038,11 @@ function carouselAfterDrop(node) {
 			if (typeof Swiper == "undefined") return;
 			let list = document.querySelectorAll('.swiper' + (onlyNew ? ":not(.swiper-initialized)" : "") );
 			list.forEach(el => {
-				let params = {      
+				let params = {
 					navigation: {
 						nextEl: ".swiper-button-next",
 						prevEl: ".swiper-button-prev",
-					},      
+					},
 					pagination: {
 						el: ".swiper-pagination",
 				  },
@@ -1055,7 +1055,7 @@ function carouselAfterDrop(node) {
 					params[i] = param;
 				}
 				swiper.push(new Swiper(el, params))
-				//swiper.push(new Swiper(el, { ...{autoplay:{delay: 500}}, ...el.dataset}))		
+				//swiper.push(new Swiper(el, { ...{autoplay:{delay: 500}}, ...el.dataset}))
 			});
 		}
 
@@ -1063,19 +1063,19 @@ function carouselAfterDrop(node) {
 			initSwiper();
 		  } else {
 			document.addEventListener('DOMContentLoaded', initSwiper);
-		  }`;			
-		
+		  }`;
+
 		body.appendChild(link);
 		body.appendChild(lib);
 		body.appendChild(code);
-		
-		lib.addEventListener('load', function() {		
+
+		lib.addEventListener('load', function() {
 			Vvveb.Builder.iframe.contentWindow.initSwiper();
 		});
 	} else {
 		Vvveb.Builder.iframe.contentWindow.initSwiper(true);
 	}
-	
+
 	return node;
 };
 
@@ -1097,12 +1097,12 @@ Vvveb.Components.add("elements/carousel", {
 		<div class="swiper-button-prev"></div>
 		<div class="swiper-button-next"></div>
 		-->
-		
+
 		<!-- <div class="swiper-scrollbar"></div> -->
-	  </div>	
+	  </div>
 	`,
 	afterDrop: carouselAfterDrop,
-	
+
     onChange: function (node, property, value) {
 		let element = node;
 		if (property.key == "autoplay" && value == true) {
@@ -1133,7 +1133,7 @@ Vvveb.Components.add("elements/carousel", {
 			let dataset = {};
 			for (i in element.dataset) {
 				dataset[i] = element.dataset[i];
-			}; 
+			};
 
 			if (event.action) {
 				if (event.action == "add") {
@@ -1150,15 +1150,15 @@ Vvveb.Components.add("elements/carousel", {
 					element.swiper.slideTo(event.index, 300, true);
 				}
 			}
-			
+
 			setTimeout(function () {
 				for (i in dataset) {
 					element.swiper.params[i] = dataset[i];
 					element.dataset[i] = dataset[i];
-				}; 
-				element.swiper.update(); 
+				};
+				element.swiper.update();
 			}, 1000);
-			
+
 			return node;
 		},
 	},{
@@ -1188,14 +1188,14 @@ Vvveb.Components.add("elements/carousel", {
         inputtype: SectionInput,
         name:false,
         data: {header:"Options"},
-    },{	
+    },{
 		name: "Simulate touch",
         key: "simulateTouch",
 		htmlAttr:"data-simulate-touch",
 		inputtype: CheckboxInput,
 		inline:true,
         col:4
-    },{	
+    },{
 		name: "Autoplay",
         key: "autoplay",
 		htmlAttr:"data-autoplay",
@@ -1234,7 +1234,7 @@ Vvveb.Components.add("elements/carousel", {
 		inputtype: CheckboxInput,
 		inline:true,
         col:4
-	},{	
+	},{
         name: "Pagination",
         key: "pagination",
 		htmlAttr:"data-pagination",
@@ -1294,12 +1294,12 @@ Vvveb.Components.add("elements/slider", {
 
 		<div class="swiper-button-prev"></div>
 		<div class="swiper-button-next"></div>
-		
+
 		<!-- <div class="swiper-scrollbar"></div> -->
-	  </div>	
+	  </div>
 	`,
 	afterDrop: carouselAfterDrop,
-}); 	
+});
 
 
 Vvveb.Components.add("elements/icon-list", {
@@ -1309,7 +1309,7 @@ Vvveb.Components.add("elements/icon-list", {
     html: `<i class="font-icon la la-star"></i>`,
     properties: [
 	]
-});   
+});
 
 Vvveb.Components.add("elements/divider", {
     nodes: [".counter"],
@@ -1318,7 +1318,7 @@ Vvveb.Components.add("elements/divider", {
     html: `<i class="font-icon la la-star"></i>`,
     properties: [
 	]
-});   
+});
 
 Vvveb.Components.add("elements/separator", {
     nodes: [".counter"],
@@ -1327,7 +1327,7 @@ Vvveb.Components.add("elements/separator", {
     html: `<i class="font-icon la la-star"></i>`,
     properties: [
 	]
-});   
+});
 
 Vvveb.Components.add("elements/Image box", {
     nodes: [".counter"],
@@ -1336,7 +1336,7 @@ Vvveb.Components.add("elements/Image box", {
     html: `<i class="font-icon la la-star"></i>`,
     properties: [
 	]
-});   
+});
 
 Vvveb.Components.add("elements/Icon box", {
     nodes: [".counter"],
@@ -1345,7 +1345,7 @@ Vvveb.Components.add("elements/Icon box", {
     html: `<i class="font-icon la la-star"></i>`,
     properties: [
 	]
-});   
+});
 
 Vvveb.Components.add("elements/animated-headline", {
     nodes: [".counter"],
@@ -1354,7 +1354,7 @@ Vvveb.Components.add("elements/animated-headline", {
     html: `<i class="font-icon la la-star"></i>`,
     properties: [
 	]
-});   
+});
 
 Vvveb.Components.add("elements/price-table", {
     nodes: [".counter"],
@@ -1363,7 +1363,7 @@ Vvveb.Components.add("elements/price-table", {
     html: `<i class="font-icon la la-star"></i>`,
     properties: [
 	]
-});   
+});
 
 Vvveb.Components.add("elements/price-list", {
     nodes: [".counter"],
@@ -1372,7 +1372,7 @@ Vvveb.Components.add("elements/price-list", {
     html: `<i class="font-icon la la-star"></i>`,
     properties: [
 	]
-});   
+});
 
 Vvveb.Components.add("elements/reviews", {
     nodes: [".counter"],
@@ -1381,7 +1381,7 @@ Vvveb.Components.add("elements/reviews", {
     html: `<i class="font-icon la la-star"></i>`,
     properties: [
 	]
-});   
+});
 
 Vvveb.Components.add("elements/code", {
     nodes: ["code"],
@@ -1398,8 +1398,8 @@ Vvveb.Components.add("elements/code", {
 			rows:20,
 		}
 	}]
-}); 
-  
+});
+
 Vvveb.Components.add("elements/image-compare", {
     nodes: [".counter"],
     name: "Image Compare",
@@ -1410,7 +1410,7 @@ Vvveb.Components.add("elements/image-compare", {
 	</div>`,
     properties: [
 	]
-});   
+});
 
 Vvveb.Components.add("elements/rating", {
     nodes: [".rating"],

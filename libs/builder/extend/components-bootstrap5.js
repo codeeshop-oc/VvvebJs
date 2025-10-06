@@ -1,3 +1,15 @@
+
+// const new_pages = {
+//     "custom": {name:"custom", title:"Custom",  url: "my-pages/custom.html", file: "demo/custom/index.html", folder:"content"}
+// };
+
+// const firstPage1 = Object.keys(new_pages)[0];
+// console.log(new_pages[firstPage1]["url"], 'new_pages[firstPage1]')
+// Vvveb.Builder.init(new_pages[firstPage1]["url"], function() {
+//     //load code after page is loaded here
+// });
+
+
 Vvveb.ComponentsGroup['Custom'] = ["php/trending_posts_gridrow"]
 
 const trending_posts_gridcolumn_html = `<div class="trending_posts_column col-sm-12" data-module="php/trending_posts_gridcolumn"><h3>col-sm-12</h3></div>`;

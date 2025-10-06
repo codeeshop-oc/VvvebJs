@@ -308,7 +308,7 @@ Vvveb.Components.extend("_base", "php/trending_posts_gridrow", {
              Vvveb.Components.render("php/trending_posts_gridrow");
 
              // reload navigator
-             // Vvveb.TreeList.loadComponents();
+             Vvveb.TreeList.loadComponents();
 
              return node;
         }

@@ -315,27 +315,27 @@ Vvveb.Components.extend("_base", "php/trending_posts_gridrow", {
 
 
 
-Vvveb.Components.extend("_base", "_base", {
-    name: "Base Component with Typography",
-    properties: [
-        ...Vvveb.Components._components._base.properties, // keep existing
-        {
-            name: "Font sizeww",
-            key: "font-size2",
-            htmlAttr: "style",
-            sort: base_sort++,
-            section: style_section,
-            col:6,
-            inline:false,
-            inputtype: CssUnitInput
-            // key: "font_size",
-            // inputtype: RangeInput,
-            // name: "Font size",
-            // data: { min: 10, max: 100, step: 1 },
-            // onChange: function(node, value) {
-            //     node.style.fontSize = value + "px";
-            //     return node;
-            // }
-        }
-    ]
-});
+// Vvveb.Components.extend("_base", "_base", {
+//     name: "Base Component with Typography",
+//     properties: [
+//         ...Vvveb.Components._components._base.properties, // keep existing
+//         {
+//             name: "Font sizeww",
+//             key: "font-size2",
+//             htmlAttr: "style",
+//             sort: base_sort++,
+//             section: style_section,
+//             col:6,
+//             inline:false,
+//             inputtype: CssUnitInput
+//             // key: "font_size",
+//             // inputtype: RangeInput,
+//             // name: "Font size",
+//             // data: { min: 10, max: 100, step: 1 },
+//             // onChange: function(node, value) {
+//             //     node.style.fontSize = value + "px";
+//             //     return node;
+//             // }
+//         }
+//     ]
+// });
